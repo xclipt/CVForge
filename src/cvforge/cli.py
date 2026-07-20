@@ -4,6 +4,7 @@ from cvforge.commands.init import run as init_run
 from cvforge.commands.new import resume as resume_run
 from cvforge.commands.build import run as build_run
 from cvforge.commands.pdf import run as pdf_run
+from cvforge.commands.templates import run as templates_run
 
 
 def main():
@@ -33,13 +34,17 @@ def main():
     build_parser.add_argument(
         "--template",
         default="ats",
-        choices=["ats", "photo"],
         help="Choose resume template"
     )
 
     subparsers.add_parser(
         "pdf",
         help="Generate PDF resume"
+    )
+
+    subparsers.add_parser(
+        "templates",
+        help="List available resume templates"
     )
 
     new_parser = subparsers.add_parser(
@@ -71,6 +76,10 @@ def main():
 
     if args.command == "build":
         build_run(args.template)
+        return
+
+    if args.command == "templates":
+        templates_run()
         return
 
     if args.command == "pdf":
