@@ -1,10 +1,12 @@
 from pathlib import Path
-import yaml
+from cvforge.commands.validate import run as validate_run
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
 
 def run(template_name="ats"):
+
+    validate_run()
 
     root = Path.cwd()
 

@@ -5,6 +5,7 @@ from cvforge.commands.new import resume as resume_run
 from cvforge.commands.build import run as build_run
 from cvforge.commands.pdf import run as pdf_run
 from cvforge.commands.templates import run as templates_run
+from cvforge.commands.validate import run as validate_run
 
 
 def main():
@@ -47,6 +48,11 @@ def main():
         help="List available resume templates"
     )
 
+    subparsers.add_parser(
+        "validate",
+        help="Validate resume data"
+    )
+
     new_parser = subparsers.add_parser(
         "new",
         help="Create CVForge resources"
@@ -80,6 +86,10 @@ def main():
 
     if args.command == "templates":
         templates_run()
+        return
+
+    if args.command == "validate":
+        validate_run()
         return
 
     if args.command == "pdf":
