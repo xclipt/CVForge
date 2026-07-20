@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "[latex]": {
+    "editor.tabSize": 2
+  },
+  "files.associations": {
+    "*.tex": "latex"
+  }
+}
