@@ -37,7 +37,15 @@ def run(template_name="ats"):
         else "modern.tex.j2"
     )
 
-    template = env.get_template(template_file)
+    try:
+        template = env.get_template(template_file)
+    except Exception:
+        print(f"❌ Template '{template_name}' not found")
+        print("Available templates:")
+        for item in (root / "src/cvforge/templates").iterdir():
+            if item.is_dir():
+                print(f" - {item.name}")
+        return
 
     rendered = template.render(**data)
 

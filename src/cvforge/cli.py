@@ -1,4 +1,5 @@
 import argparse
+from cvforge.version import VERSION
 
 from cvforge.commands.init import run as init_run
 from cvforge.commands.new import resume as resume_run
@@ -6,6 +7,7 @@ from cvforge.commands.build import run as build_run
 from cvforge.commands.pdf import run as pdf_run
 from cvforge.commands.templates import run as templates_run
 from cvforge.commands.validate import run as validate_run
+from cvforge.commands.doctor import run as doctor_run
 
 
 def main():
@@ -53,6 +55,11 @@ def main():
         help="Validate resume data"
     )
 
+    subparsers.add_parser(
+        "doctor",
+        help="Check CVForge environment"
+    )
+
     new_parser = subparsers.add_parser(
         "new",
         help="Create CVForge resources"
@@ -68,7 +75,7 @@ def main():
     args = parser.parse_args()
 
     if args.version:
-        print("CVForge v0.1.0")
+        print(f"CVForge v{VERSION}")
         return
 
     if args.command == "init":
@@ -90,6 +97,10 @@ def main():
 
     if args.command == "validate":
         validate_run()
+        return
+
+    if args.command == "doctor":
+        doctor_run()
         return
 
     if args.command == "pdf":
