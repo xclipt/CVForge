@@ -2,6 +2,8 @@ import argparse
 
 from cvforge.commands.init import run as init_run
 from cvforge.commands.new import resume as resume_run
+from cvforge.commands.build import run as build_run
+from cvforge.commands.pdf import run as pdf_run
 
 
 def main():
@@ -21,6 +23,16 @@ def main():
     subparsers.add_parser(
         "init",
         help="Initialize a CVForge workspace"
+    )
+
+    subparsers.add_parser(
+        "build",
+        help="Build LaTeX resume"
+    )
+
+    subparsers.add_parser(
+        "pdf",
+        help="Generate PDF resume"
     )
 
     new_parser = subparsers.add_parser(
@@ -49,6 +61,14 @@ def main():
         if args.new_command == "resume":
             resume_run()
             return
+
+    if args.command == "build":
+        build_run()
+        return
+
+    if args.command == "pdf":
+        pdf_run()
+        return
 
     parser.print_help()
 

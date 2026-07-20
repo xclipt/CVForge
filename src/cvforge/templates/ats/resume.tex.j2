@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{ {{ personal.name }} }}\\
+    {{ personal.title }}\\
+    {{ personal.email }} | {{ personal.phone }}
+\end{center}
+
+\section*{Summary}
+
+{{ summary }}
+
+\section*{Experience}
+
+{% for job in experience %}
+
+\textbf{{ job.company }} \hfill {{ job.dates }}
+
+\textit{{ job.role }}
+
+{% for item in job.achievements %}
+\begin{itemize}
+    \item {{ item }}
+\end{itemize}
+{% endfor %}
+
+{% endfor %}
+
+
+\section*{Education}
+
+{% for edu in education %}
+\textbf{{ edu.institution }} \hfill {{ edu.dates }}
+
+{{ edu.degree }}
+
+{% endfor %}
+
+
+\section*{Skills}
+
+Technical:
+{% for skill in skills.technical %}
+{{ skill }},
+{% endfor %}
+
+\end{document}
