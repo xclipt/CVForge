@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage{graphicx}
+\usepackage{newtxtext}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\titleformat{\section}
+{\large\bfseries}
+{}
+{0em}
+{}
+[\titlerule]
+
+\begin{document}
+
+\begin{center}
+
+{% if personal.photo %}
+\includegraphics[width=3cm]{ {{ personal.photo }} }
+
+\vspace{10pt}
+
+{% endif %}
+
+{\Large \textbf{ {{ personal.name }} }}\\
+
+{{ personal.title }}\\
+
+{{ personal.email }} | {{ personal.phone }}\\
+
+{{ personal.location }}
+
+\end{center}
+
+
+\section*{Profile}
+
+{{ summary }}
+
+
+\section*{Experience}
+
+{% for job in experience %}
+
+\textbf{ {{ job.company }} }
+\hfill
+{{ job.dates }}
+
+\textit{ {{ job.role }} }
+
+
+{% for achievement in job.achievements %}
+\begin{itemize}
+\item {{ achievement }}
+\end{itemize}
+{% endfor %}
+
+{% endfor %}
+
+
+\section*{Projects}
+
+{% for project in projects %}
+
+\textbf{ {{ project.name }} }
+
+{{ project.description }}
+
+{% endfor %}
+
+
+\section*{Skills}
+
+{% for skill in skills.technical %}
+{{ skill }} |
+{% endfor %}
+
+
+\end{document}

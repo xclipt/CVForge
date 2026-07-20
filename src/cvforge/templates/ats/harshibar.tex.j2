@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.65in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\titleformat{\section}
+{\large\bfseries}
+{}
+{0em}
+{}
+[\titlerule]
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{{ personal.name }}}\\
+{{ personal.title }}\\
+{{ personal.email }} | {{ personal.phone }}\\
+{{ personal.location }}
+\end{center}
+
+\vspace{8pt}
+
+\section*{Professional Summary}
+
+{{ summary }}
+
+\section*{Experience}
+
+{% for job in experience %}
+
+\textbf{{ job.company }} \hfill {{ job.dates }}
+
+\textit{{ job.role }}
+
+{% for achievement in job.achievements %}
+\begin{itemize}[leftmargin=*]
+\item {{ achievement }}
+\end{itemize}
+{% endfor %}
+
+{% endfor %}
+
+
+\section*{Education}
+
+{% for edu in education %}
+
+\textbf{{ edu.institution }}
+
+{{ edu.degree }} \hfill {{ edu.dates }}
+
+{% endfor %}
+
+
+\section*{Projects}
+
+{% for project in projects %}
+
+\textbf{{ project.name }}
+
+{{ project.description }}
+
+{% endfor %}
+
+
+\section*{Skills}
+
+{% for skill in skills.technical %}
+{{ skill }} \\
+{% endfor %}
+
+\end{document}

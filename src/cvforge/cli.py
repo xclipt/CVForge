@@ -25,9 +25,16 @@ def main():
         help="Initialize a CVForge workspace"
     )
 
-    subparsers.add_parser(
+    build_parser = subparsers.add_parser(
         "build",
         help="Build LaTeX resume"
+    )
+
+    build_parser.add_argument(
+        "--template",
+        default="ats",
+        choices=["ats", "photo"],
+        help="Choose resume template"
     )
 
     subparsers.add_parser(
@@ -63,7 +70,7 @@ def main():
             return
 
     if args.command == "build":
-        build_run()
+        build_run(args.template)
         return
 
     if args.command == "pdf":
