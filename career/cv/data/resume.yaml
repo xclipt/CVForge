@@ -1,0 +1,34 @@
+personal:
+  name: ""
+  title: ""
+  email: ""
+  phone: ""
+  location: ""
+  linkedin: ""
+  github: ""
+
+summary: ""
+
+experience:
+  - company: ""
+    role: ""
+    dates: ""
+    achievements:
+      - ""
+
+education:
+  - institution: ""
+    degree: ""
+    dates: ""
+
+projects:
+  - name: ""
+    description: ""
+    technologies:
+      - ""
+
+skills:
+  technical:
+    - ""
+  tools:
+    - ""

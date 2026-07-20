@@ -10,3 +10,4 @@ src/cvforge.egg-info/entry_points.txt
 src/cvforge.egg-info/top_level.txt
 src/cvforge/commands/__init__.py
 src/cvforge/commands/init.py
+src/cvforge/commands/new.py
